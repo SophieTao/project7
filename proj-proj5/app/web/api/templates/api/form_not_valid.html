@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block body %}
+<div clas="page-header">
+    <h1>Search for meals:</h1>
+</div>
+<br/>
+<div class="row">
+    <div class="col-lg-4">
+      {% include "api/searchbar.html" %}
+    </div>
+</div>
+{% if res %}
+  <h2>Results</h2>
+    {% for meal in res %}
+    <h3>{{ meal.name }}</h3>
+	<p>{{ meal.description }}</p>
+    {% endfor %}
+{% elif not firstvisit %}
+  <h3>Search is not valid</h3>
+{% endif %}
+
+{% endblock %}

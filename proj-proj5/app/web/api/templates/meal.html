@@ -1,0 +1,12 @@
+
+{% if meals_list %}
+    <ul>
+    hello
+    {% for meal in meals_list %}
+        <li>{{ meal.location }}</li>
+        <li>{{ meal.name }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No users are available.</p>
+    {%endif%}
