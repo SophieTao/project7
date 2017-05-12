@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block body %}
+{% if resp %}
+    <div class="page-header">
+        <ul>
+            <h2>Meal Detail</h2>
+        	<br>Name: {{ resp.name }}
+            <br>Location: {{ resp.location }}
+            <br>Date: {{ resp.date }}
+            <br>Description: {{ resp.description }}
+            <br>Calories:{{ resp.Calories }}
+            <br>
+            <br>Recommendations:
+            {% for meal in resp.rec %}
+                {{ meal }}
+            {%endfor%}
+        </ul>
+    </div>
+
+{% else %}
+    <p>No such meal.</p>
+    {%endif%}
+{% endblock %}    

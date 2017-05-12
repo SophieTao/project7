@@ -1,0 +1,27 @@
+sudo: required
+
+language: python
+
+services:
+  - docker
+
+install:
+- docker pull tp33/django
+- docker pull mysql:5.7.14
+- docker pull haproxy:1.7
+- mkdir db
+- docker run --name mysql -d -e MYSQL_ROOT_PASSWORD='$3cureUS' -v ~/cs4501/db:/var/lib/mysql  mysql:5.7.14
+- sleep 20
+- >
+    docker run -it --name mysql-cmdline --link mysql:db mysql:5.7.14 mysql -uroot -p'$3cureUS' -h db -e "create user 'www'@'%' identified by '\$3cureUS'; create database cs4501 character set utf8; grant all on *.* to 'www'@'%'";
+- docker build -t my-haproxy .
+
+before_script:
+- docker-compose up -d
+- sleep 20
+script:
+- docker exec -it models_container bash -c "cd models && python manage.py test"
+
+after_script:
+- docker-compose stop
+- docker stop mysql

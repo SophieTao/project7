@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block body %}
+<div clas="page-header">
+    <h1>Search for meals</h1>
+</div>
+<br/>
+<div class="row">
+    <div class="col-lg-4">
+      {% include "api/searchbar.html" %}
+    </div>
+</div>
+{% if res %}
+  <h3>Results</h3>
+    {% for meal in res %}
+    <br>Name: {{ meal.name }}
+    <br>Location: {{ meal.location }}
+    <br>Date: {{ meal.date }}
+    <br>Description: {{ meal.description }}
+    <br>Calories:{{ meal.Calories }}
+    <br>
+    {% endfor %}
+{% elif not firstvisit %}
+  <h2>Sorry, no results matching your search were found</h2>
+{% endif %}
+
+{% endblock %}

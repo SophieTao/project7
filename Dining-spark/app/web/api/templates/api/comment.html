@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block body %}
+{% if resp %}
+    <ul>
+    <h2>Comment Detail</h2>
+        <br>Name: {{ resp.description }}
+        <br>Location: {{ resp.feedback }}
+        <br>Date: {{ resp.date_written }}
+        <br>Description: {{ resp.rating }}
+    </ul>
+{% else %}
+    <p>No such comment.</p>
+    {%endif%}
+{% endblock %}    
+
+
+
