@@ -1,0 +1,20 @@
+Output produced by one Spark job
+
+coviews: (u'1', u'3')	count: 3
+coviews: (u'1', u'7')	count: 3
+coviews: (u'2', u'3')	count: 3
+coviews: (u'3', u'5')	count: 3
+coviews: (u'3', u'7')	count: 3
+
+
+api_recommendation table  
+
++----+---------+-------------------+
+| id | item_id | recommended_items |
++----+---------+-------------------+
+|  5 |       1 | 3,7,              |
+|  6 |       7 | 3,1,              |
+|  8 |       5 | 3,                |
+|  9 |       2 | 3,                |
+| 10 |       3 | 7,1,5,2,          |
++----+---------+-------------------+

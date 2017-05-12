@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="page-header">
+</div>
+{% if meals %}
+Recent Meals
+    <ul>
+    {% for meal in meals %}
+        <li><a href="/meal/{{ meal.id }}/">{{ meal.name }}</a></li>
+        <br>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No recent meals</p>
+{% endif %}
+
+{% if allcomments %}
+All Comments
+    <ul>
+    {% for comment in allcomments %}
+        <li>{{ comment.description }}</a></li>
+        <br>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No comments</p>
+{% endif %}
+{% endblock %}
+
+

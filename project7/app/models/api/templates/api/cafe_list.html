@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block body %}
+<ul>
+	{% for cafe in all_cafes %}
+	<li><a href="{% url 'meal_detail' cafe.id %}">{{cafe.name}}</a></li>
+	<a href="{% url 'cafe-update' cafe.id %}">edit</a>
+ 
+			{% endfor %}
+</ul>
+{% endblock %}

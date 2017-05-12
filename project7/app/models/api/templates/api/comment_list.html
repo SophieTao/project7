@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block body %}
+<ul>
+	{% for comment in all_comments %}
+	<li><a href="{% url 'detail' comment.id %}">{{comment.description}}</a></li>
+	<a href="{% url 'comment-update' comment.id %}">edit</a>
+  <a href="{% url 'comment-delete' comment.id %}">delete</a>
+
+			{% endfor %}
+</ul>
+{% endblock %}
